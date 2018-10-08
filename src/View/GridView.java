@@ -2,11 +2,9 @@ package View;
 
 import Controller.Controller;
 import Dungeon.*;
-import javafx.geometry.Pos;
-import javafx.geometry.Rectangle2D;
+import javafx.geometry.*;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
-import javafx.geometry.Insets;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.text.Text;
@@ -37,7 +35,10 @@ public class GridView implements View{
         gp.setGridLinesVisible(true);
 
         for (Room d : dg.getTest()) {
-            gp.add(new Text("R"), d.getX(), d.getY());
+            Text t1 = new Text("R");
+            gp.add(t1, d.getX(), d.getY());
+            gp.setHalignment(t1, HPos.CENTER);
+            gp.setValignment(t1, VPos.CENTER);
             gp.getColumnConstraints().addAll(ccHor);
             gp.getRowConstraints().addAll(ccVer);
         }
